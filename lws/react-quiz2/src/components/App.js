@@ -7,10 +7,12 @@ import Login from './pages/Signin';
 import Signup from "./pages/Signup";
 import Result from './pages/Result';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from "../contexts/AuthContext";
 
 function App() {
   return (
     <Router>
+      <AuthProvider>
       <Layout>
         <Routes>
           <Route exact path="/" Component={Home} />
@@ -18,13 +20,9 @@ function App() {
           <Route exact path="/login" Component={Login} />
           <Route exact path="/quiz" Component={Quiz} />
           <Route exact path="/result" Component={Result} />
-          {/* <Home />
-          <Signup />
-          <Login />
-          <Quiz />
-          <Result /> */}
         </Routes>
       </Layout>
+      </AuthProvider>
     </Router>
   );
 }
