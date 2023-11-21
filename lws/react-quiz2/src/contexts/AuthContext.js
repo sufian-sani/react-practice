@@ -1,7 +1,7 @@
 import  React, {useContext, useEffect, useState} from 'react';
-import "../firebase"
 import {createUserWithEmailAndPassword, getAuth, updateProfile, signInWithEmailAndPassword, signOut, onAuthStateChanged} from "firebase/auth"
 import { useParams } from 'react-router-dom';
+import "../firebase"
 
 const AuthContext = React.createContext();
 
@@ -37,7 +37,7 @@ export function AuthProvider({children}){
     }
 
     function login(email, password){
-        const auth = getAuth;
+        const auth = getAuth();
         return signInWithEmailAndPassword(auth, email, password)
     }
 

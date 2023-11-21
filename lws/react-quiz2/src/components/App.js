@@ -8,6 +8,7 @@ import Signup from "./pages/Signup";
 import Result from './pages/Result';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from "../contexts/AuthContext";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
   return (
@@ -18,8 +19,8 @@ function App() {
           <Route exact path="/" Component={Home} />
           <Route exact path="/signup" Component={Signup} />
           <Route exact path="/login" Component={Login} />
-          <Route exact path="/quiz" Component={Quiz} />
-          <Route exact path="/result" Component={Result} />
+          <PrivateRoute exact path="/quiz" Component={Quiz} />
+          <PrivateRoute exact path="/result" Component={Result} />
         </Routes>
       </Layout>
       </AuthProvider>

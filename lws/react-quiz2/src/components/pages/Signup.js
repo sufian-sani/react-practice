@@ -1,9 +1,11 @@
-import Form from "../Form";
+// import Form from "../Form";
 import Illustration from "../Illustration";
-import classes from '../../styles/Signup.module.css';
-import TextInput from "../TextInput";
-import Checkbox from '../Checkbox';
-import Button from '../Button';
+// import classes from '../../styles/Signup.module.css';
+// import TextInput from "../TextInput";
+// import Checkbox from '../Checkbox';
+// import Button from '../Button';
+import SignupForm from "../SignupForm"
+
 
 export default function Signup(){
     return (
@@ -11,7 +13,9 @@ export default function Signup(){
             <h1>Create an account</h1>
             <div className="column">
                 <Illustration />
-                <Form className={`${classes.signup}`}>
+                <SignupForm />
+
+                {/* <Form className={`${classes.signup}`}>
                     <TextInput type="text" placeholder="Enter Name" icon="person" />
                     <TextInput type="text" placeholder="Enter email" icon="alternate_email" />
                     <TextInput type="password" placeholder="Enter password" icon="lock" />
@@ -23,7 +27,7 @@ export default function Signup(){
                     <div className="info">
                         Already have an account? <a href="login.html">Login</a> instead.
                     </div>
-                </Form>
+                </Form> */}
             </div>
         </>
     );
