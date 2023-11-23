@@ -8,6 +8,6 @@ export default function PrivateRoute({component: Component, ...rest}){
                 <Route {...rest}>{(props => <Component {...props} />)}</Route>
             </ Routes>
         ):(
-            // <Navigate to="/login" />
+            <Navigate to="/login" />
         )
 }

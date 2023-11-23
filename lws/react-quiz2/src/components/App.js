@@ -19,8 +19,10 @@ function App() {
           <Route exact path="/" Component={Home} />
           <Route exact path="/signup" Component={Signup} />
           <Route exact path="/login" Component={Login} />
-          <PrivateRoute exact path="/quiz" Component={Quiz} />
-          <PrivateRoute exact path="/result" Component={Result} />
+          <Route exact path="/quiz" Component={Quiz} />
+          <Route exact path="/result" Component={Result} />
+          {/*<PrivateRoute exact path="/quiz" Component={Quiz} />*/}
+          {/*<PrivateRoute exact path="/result" Component={Result} />*/}
         </Routes>
       </Layout>
       </AuthProvider>
