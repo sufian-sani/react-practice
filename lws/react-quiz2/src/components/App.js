@@ -8,7 +8,7 @@ import Signup from "./pages/Signup";
 import Result from './pages/Result';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from "../contexts/AuthContext";
-import PrivateRoute from "./PrivateRoute";
+// import PrivateRoute from "./PrivateRoute";
 
 function App() {
   return (
