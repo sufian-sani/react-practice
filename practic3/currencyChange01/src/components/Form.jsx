@@ -1,6 +1,9 @@
 import React from 'react';
+import CurrencyCall from "./CurrencyCall.js";
 
 function Form(props) {
+    let currecyVal = CurrencyCall()
+    console.log(currecyVal)
     return (
         <div>
             <form>
@@ -27,6 +30,9 @@ function Form(props) {
                 </div>
                 <button type="button">Convert</button>
             </form>
+
+
+
         </div>
     );
 }
