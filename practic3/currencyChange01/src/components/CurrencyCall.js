@@ -7,8 +7,8 @@ function CurrencyCall(currency) {
             .then((res) => res.json())
             .then((res) => setData(res[currency]))
         console.log(data)
-        return data
     }, [currency]);
+    return data
 }
 
 export default CurrencyCall;
