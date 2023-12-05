@@ -1,9 +1,31 @@
 import React, {useState} from 'react';
 import CurrencyCall from "./CurrencyCall.js";
 
-function selectHandler(currency1,currency2,currencyFirstValue){
-    console.log(currency1,currency2,currencyFirstValue);
+
+function selectHandler(currency1,currency2,currencyFirstValue, currencyValue1, currencyValue2,setCurrencySecondValue){
+    // console.log(currency1,currency2,currencyFirstValue,currencyValue1, currencyValue2);
+    let requiredVal = 0
+    for (const [key, value] of Object.entries(currencyValue1)) {
+        // console.log(key, value);
+        if (key === currency2){
+            // requiredVal = value;
+            // requiredVal = requiredVal * currency2
+            // console.log(requiredVal * currency2)
+            currencyFirstValue=parseInt(currencyFirstValue)
+            requiredVal=currencyFirstValue*value
+        }
+    }
+
+    setCurrencySecondValue(requiredVal)
+    // return requiredVal
+    // console.log('currencyValue1',currencyValue1)
+    // for (const [key, value] of currencyValue1.entries()) {
+    //     if (key === currency2){
+    //         console.log(key,value)
+    //     }
+    // }
 }
+
 function TestComponents() {
     let [currency1, setCurrency1] = useState("usd")
     let [currency2, setCurrency2] = useState("bdt")
@@ -15,6 +37,7 @@ function TestComponents() {
     let currencyKey2 = Object.keys(currencyValue2);
 
     let [currencyFirstValue, setCurrencyFirstValue] = useState(0)
+    let [currencySecondValue, setCurrencySecondValue] = useState(0)
 
     return (
         <div>
@@ -30,9 +53,9 @@ function TestComponents() {
                     <option key={option}>{option}</option>
                 ))}
             </select>
-            <input type="number" disabled/>
+            <input type="number" disabled value={currencySecondValue}/>
             <br />
-            <button onClick={()=>selectHandler(currency1,currency2,currencyFirstValue)}>
+            <button onClick={()=>selectHandler(currency1,currency2,currencyFirstValue, currencyValue1, currencyValue2,setCurrencySecondValue)}>
                 convert
             </button>
 
