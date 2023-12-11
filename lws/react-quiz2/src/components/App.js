@@ -1,6 +1,6 @@
 import '../styles/App.css'
 import Quiz from './pages/Quiz';
-// import Signup from './Button';
+// import Signup from './Counter';
 import Layout from './Layout';
 import Home from './pages/Home';
 import Login from './pages/Signin';

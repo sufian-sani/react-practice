@@ -3,7 +3,7 @@ import Illustration from "../Illustration";
 // import classes from '../../styles/Signup.module.css';
 // import TextInput from "../TextInput";
 // import Checkbox from '../Checkbox';
-// import Button from '../Button';
+// import Counter from '../Counter';
 import SignupForm from "../SignupForm"
 
 
@@ -21,9 +21,9 @@ export default function Signup(){
                     <TextInput type="password" placeholder="Enter password" icon="lock" />
                     <TextInput type="password" placeholder="Confirm password" icon="lock_clock" />
                     <Checkbox text="I agree to the Terms &amp; Conditions" />
-                    <Button>
+                    <Counter>
                         <span>Submit now</span>
-                    </Button>
+                    </Counter>
                     <div className="info">
                         Already have an account? <a href="login.html">Login</a> instead.
                     </div>
