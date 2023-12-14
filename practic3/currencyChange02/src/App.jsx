@@ -10,10 +10,11 @@ function App() {
     const [to, setTo] = useState('bdt')
     const [amount, setAmount] = useState(0)
 
-    const [currency, setCurrency] = useState([])
+    // const [currency, setCurrency] = useState([])
 
-    let currencyObject = useCurrencyInfo()
-    // console.log(currencyObject[from])
+    let currencyObject = useCurrencyInfo(from)
+    let options = Object.keys(currencyObject)
+    console.log(options)
 
   return (
       <div
@@ -35,9 +36,7 @@ function App() {
                               label='From'
                               from = {from}
                               amount = {amount}
-                              // account = {account}
-                              // changeAccount = {changeAccount}
-                              // currency = {currency}
+                              options = {options}
                           />
                       </div>
                       <div className="relative w-full h-0.5">

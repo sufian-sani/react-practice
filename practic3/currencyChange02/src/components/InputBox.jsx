@@ -5,6 +5,7 @@ function InputBox({
                       from,
                       to,
                       amount,
+                      options=[],
                       className = "",
   }) {
     // let currVal = UseCurrencyInfo()
@@ -29,10 +30,9 @@ function InputBox({
                 <select
                     className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
                 >
-                    <option value="usd">
-                        {from}
-                    </option>
-
+                    {options.map((option) => (
+                        <option key={option} value={option}>{option}</option>
+                    ))}
                 </select>
             </div>
         </div>
