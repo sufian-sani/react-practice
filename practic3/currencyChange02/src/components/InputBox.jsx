@@ -6,12 +6,13 @@ function InputBox({
                       to,
                       amount,
                       options=[],
+                      onAmountChange,
                       className = "",
   }) {
     // let currVal = UseCurrencyInfo()
-    console.log(from)
-    console.log(to)
-    console.log(amount)
+    // console.log(from)
+    // console.log(to)
+    console.log(onAmountChange)
     return (
         <div className={`bg-white p-3 rounded-lg text-sm flex `}>
             <div className="w-1/2">
@@ -23,6 +24,7 @@ function InputBox({
                     type="number"
                     placeholder="Amount"
                     value={amount}
+                    onChange={(e)=>onAmountChange && onAmountChange(Number(e.target.value))}
                 />
             </div>
             <div className="w-1/2 flex flex-wrap justify-end text-right">
@@ -31,7 +33,12 @@ function InputBox({
                     className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
                 >
                     {options.map((option) => (
-                        <option key={option} value={option}>{option}</option>
+                        <option
+                            key={option}
+                            value={option}
+                        >
+                            {option}
+                        </option>
                     ))}
                 </select>
             </div>

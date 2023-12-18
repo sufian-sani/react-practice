@@ -37,6 +37,7 @@ function App() {
                               from = {from}
                               amount = {amount}
                               options = {options}
+                              onAmountChange={(amount)=>setAmount((amount))}
                           />
                       </div>
                       <div className="relative w-full h-0.5">
@@ -51,6 +52,7 @@ function App() {
                           <InputBox
                               label='To'
                               from = {to}
+                              options = {options}
                           />
                       </div>
                       <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
