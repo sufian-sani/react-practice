@@ -14,7 +14,17 @@ function App() {
 
     let currencyObject = useCurrencyInfo(from)
     let options = Object.keys(currencyObject)
-    console.log(options)
+    const [convertedAmount, setConvertedAmount] = useState(0)
+
+    const convert = () => {
+        setConvertedAmount(amount * currencyObject[to])
+        console.log(currencyObject[to])
+    }
+
+    // console.log(convertedAmount)
+    // console.log(amount)
+    // console.log(from)
+    // console.log(to)
 
   return (
       <div
@@ -29,15 +39,17 @@ function App() {
                   <form
                       onSubmit={(e) => {
                           e.preventDefault();
+                          convert()
                       }}
                   >
                       <div className="w-full mb-1">
                           <InputBox
                               label='From'
-                              from = {from}
+                              selectCurrency = {from}
                               amount = {amount}
                               options = {options}
                               onAmountChange={(amount)=>setAmount((amount))}
+                              onCurrencyChange={(currency) => setFrom(currency)}
                           />
                       </div>
                       <div className="relative w-full h-0.5">
@@ -51,8 +63,11 @@ function App() {
                       <div className="w-full mt-1 mb-4">
                           <InputBox
                               label='To'
-                              from = {to}
+                              selectCurrency = {to}
                               options = {options}
+                              toAmount
+                              amount={convertedAmount}
+                              onCurrencyChange={(currency) => setTo(currency)}
                           />
                       </div>
                       <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
