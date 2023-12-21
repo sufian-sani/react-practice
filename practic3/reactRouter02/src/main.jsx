@@ -9,6 +9,8 @@ import {
 import Home from "./components/Pages/Home.jsx";
 import About from "./components/Pages/About.jsx";
 import Contact from "./components/Pages/Contact.jsx";
+import User from "./components/User/User.jsx";
+import Github from "./components/Github/Github.jsx";
 
 const router = createBrowserRouter([
     {
@@ -26,7 +28,15 @@ const router = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
-            }
+            },
+            {
+                path: "/user/:userid",
+                element: <User />
+            },
+            {
+                path: "/github",
+                element: <Github />
+            },
         ]
     },
 ]);
