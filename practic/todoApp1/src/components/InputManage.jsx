@@ -7,9 +7,7 @@ const InputManage = (props) => {
         'placeholder':"Add a new todo",
     }
     return (
-        <div>
-            <InputElement passItems={passItems} eventOperation={props.onChange} />
-        </div>
+            <InputElement passItems={passItems} eventOperation={props.onChange} initialVal={props.initialVal} />
     );
 };
 
