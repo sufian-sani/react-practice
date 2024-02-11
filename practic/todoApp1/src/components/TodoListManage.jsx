@@ -14,6 +14,7 @@ const TodoListManage = (props) => {
                     key={todo.id}
                     text={todo.text}
                     removeButtonComponents={()=>props.removeButtonComponents(todo.id)}
+                    edithandler={()=>props.edithandler(todo.id)}
                 />
             ))}
         </ul>
