@@ -7,17 +7,29 @@ import TodoRemoveButton from "./TodoRemoveButton.jsx";
 const TodoApp = () => {
     const [todos, setTodos] = useState([]);
     const [newTodo, setNewTodo] = useState('');
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(null);
+    const [editToggole, setEditToggole] = useState(false)
 
     const inputHandler = (e) => {
         setNewTodo(e.target.value)
     }
 
     const addTodoItem = () => {
-        if (newTodo.trim() !== '') {
+        if (newTodo.trim() !== '' && !isEditing) {
             setTodos([...todos,{ id: Date.now(), text: newTodo}]);
             setNewTodo('');
             // console.log(todos)
+        }else if(newTodo && isEditing){
+            // console.log(isEditing, newTodo)
+            setTodos(todos.map((elem)=>{
+                if(elem.id === isEditing){
+                    return {...elem,text: newTodo}
+                }
+                return elem
+            }))
+            setIsEditing(null)
+            setNewTodo('');
+            setEditToggole(false)
         }
     }
 
@@ -26,39 +38,19 @@ const TodoApp = () => {
     }
 
     const handleEdit = (id) => {
-        let editTodo = ''
-        // console.log(id)
-        todos.map((todo)=>{
-            if (todo.id === id){
-                editTodo = todo.text
-            }
+        let newdata = todos.find((todo)=>{
+            return todo.id===id
         })
-        setNewTodo(editTodo)
-        // setTodos()
-        // console.log(id, text)
-        // setTodos(
-        //     todos.map((todo) =>
-        //         todo.id === id ? { ...todo, text: text } : todo
-        //     )
-        // )
-        // let updatedTodos = todos.map(todo => {
-        //
-        // })
-        // console.log('test')
-        // // debugger;
-        // console.log('test1')
-        // setTodos(
-        //     todos.map((todo) =>
-        //         todo.id === id ? { ...todo, text: newText } : todo
-        //     )
-        // );
+        setNewTodo(newdata.text)
+        setIsEditing(id)
+        setEditToggole(true)
     };
 
     return (
         <div>
             <div className="">
                 <InputManage onChange={inputHandler} initialVal={newTodo} />
-                <TodoAddButton onClick={addTodoItem} />
+                <TodoAddButton onClick={addTodoItem} editToggole={editToggole} />
             </div>
             <TodoListManage listItem={todos} removeButtonComponents={removeItem} edithandler={handleEdit} />
         </div>
