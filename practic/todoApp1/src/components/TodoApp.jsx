@@ -16,23 +16,21 @@ const TodoApp = () => {
         if (newTodo.trim() !== '') {
             setTodos([...todos,{ id: Date.now(), text: newTodo}]);
             setNewTodo('');
-            console.log(todos)
+            // console.log(todos)
         }
     }
 
-    const removeItem = () => {
-        // setTodos(todos.filter((todo) => todo.id !== todoId))
-        // const updatedItems = [...todos];
-        // updatedItems.pop();
-        // setTodos(updatedItems);
-        console.log('removeItem')
+    const removeItem = (id) => {
+        setTodos(todos.filter((todo) => todo.id !== id))
     }
 
     return (
         <div>
-            <InputManage onChange={inputHandler} initialVal={newTodo} />
-            <TodoAddButton onClick={addTodoItem} />
-            <TodoListManage listItem={todos} removeButtonComponents={<TodoRemoveButton onClick={removeItem} />}/>
+            <div className="">
+                <InputManage onChange={inputHandler} initialVal={newTodo} />
+                <TodoAddButton onClick={addTodoItem} />
+            </div>
+            <TodoListManage listItem={todos} removeButtonComponents={removeItem} />
         </div>
     );
 };
