@@ -1,14 +1,36 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import InputManage from "./InputManage.jsx";
 import TodoAddButton from "./TodoAddButton.jsx";
 import TodoListManage from "./TodoListManage.jsx";
 import TodoRemoveButton from "./TodoRemoveButton.jsx";
 
 const TodoApp = () => {
-    const [todos, setTodos] = useState([]);
+    // const [todos, setTodos] = useState([]);
     const [newTodo, setNewTodo] = useState('');
     const [isEditing, setIsEditing] = useState(null);
     const [editToggole, setEditToggole] = useState(false)
+
+    const localdata = () => {
+        let list = localStorage.getItem("todos");
+        if(list){
+            return JSON.parse(localStorage.getItem("todos"))
+        }else {
+            return []
+        }
+    }
+
+    const [todos, setTodos] = useState(localdata());
+
+
+    // useEffect(() => {
+    //     const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
+    //     setTodos(storedTodos);
+    // }, []);
+
+    useEffect(() => {
+        // Save todos to local storage whenever todos change
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
 
     const inputHandler = (e) => {
         setNewTodo(e.target.value)
