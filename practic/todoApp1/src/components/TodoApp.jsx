@@ -2,13 +2,14 @@ import React, {useEffect, useState} from 'react';
 import InputManage from "./InputManage.jsx";
 import TodoAddButton from "./TodoAddButton.jsx";
 import TodoListManage from "./TodoListManage.jsx";
-import TodoRemoveButton from "./TodoRemoveButton.jsx";
+// import TodoRemoveButton from "./TodoRemoveButton.jsx";
 
 const TodoApp = () => {
     // const [todos, setTodos] = useState([]);
     const [newTodo, setNewTodo] = useState('');
     const [isEditing, setIsEditing] = useState(null);
     const [editToggole, setEditToggole] = useState(false)
+    const [isDisable, setIsDisable] = useState(false)
 
     const localdata = () => {
         let list = localStorage.getItem("todos");
@@ -22,13 +23,7 @@ const TodoApp = () => {
     const [todos, setTodos] = useState(localdata());
 
 
-    // useEffect(() => {
-    //     const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
-    //     setTodos(storedTodos);
-    // }, []);
-
     useEffect(() => {
-        // Save todos to local storage whenever todos change
         localStorage.setItem('todos', JSON.stringify(todos));
     }, [todos]);
 
@@ -68,13 +63,23 @@ const TodoApp = () => {
         setEditToggole(true)
     };
 
+    const disablehandler = (id) => {
+        setIsDisable(!isDisable)
+    }
+
     return (
         <div>
             <div className="">
                 <InputManage onChange={inputHandler} initialVal={newTodo} />
                 <TodoAddButton onClick={addTodoItem} editToggole={editToggole} />
             </div>
-            <TodoListManage listItem={todos} removeButtonComponents={removeItem} edithandler={handleEdit} />
+            <TodoListManage
+                listItem={todos}
+                removeButtonComponents={removeItem}
+                edithandler={handleEdit}
+                disablehandler={disablehandler}
+                idDisableVar={isDisable}
+            />
         </div>
     );
 };
