@@ -2,6 +2,7 @@ import React from 'react';
 import ListElement from "../Element/ListElement.jsx";
 import TodoAddButton from "./TodoAddButton.jsx";
 import ButtonElement from "../Element/ButtonElement.jsx";
+import EnableDisableManager from "./EnableDisableManager.jsx";
 
 const TodoListManage = (props) => {
     return (
@@ -12,6 +13,7 @@ const TodoListManage = (props) => {
                     text={todo.text}
                     removeButton={<ButtonElement eventOperation={()=>props.removeButtonComponents(todo.id)} innerHtmlText={'Remove'} />}
                     edithandler={<ButtonElement eventOperation={()=>props.edithandler(todo.id)} innerHtmlText={'Edit'} />}
+                    enableDisableButton={<EnableDisableManager disablehandler={()=>props.disablehandler(todo.id)} />}
                 />
             ))}
         </ul>

@@ -6,6 +6,7 @@ const ListElement = (props) => {
             {props.text}
             {props.removeButton}
             {props.edithandler}
+            {props.enableDisableButton}
         </li>
     );
 };
