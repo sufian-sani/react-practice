@@ -1,7 +1,6 @@
 import React from 'react';
 import ButtonElement from "./ButtonElement.jsx";
 const ListElement = (props) => {
-    // console.log(props.idDisableVar)
     return (
         <li className={props.className}>
             {props.text}

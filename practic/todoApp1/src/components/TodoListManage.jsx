@@ -13,8 +13,8 @@ const TodoListManage = (props) => {
                     text={todo.text}
                     removeButton={<ButtonElement eventOperation={()=>props.removeButtonComponents(todo.id)} innerHtmlText={'Remove'} />}
                     edithandler={<ButtonElement eventOperation={()=>props.edithandler(todo.id)} innerHtmlText={'Edit'} />}
-                    enableDisableButton={<EnableDisableManager disablehandler={()=>props.disablehandler(todo.id)} />}
-                    className={`${props.idDisableVar?'text-decoration-line-through':''}`}
+                    enableDisableButton={<EnableDisableManager disablehandler={()=>props.disablehandler(todo.id)} status={todo.isDisable} />}
+                    className={`${todo.isDisable?'text-decoration-line-through':''}`}
                 />
             ))}
         </ul>

@@ -9,7 +9,7 @@ const TodoApp = () => {
     const [newTodo, setNewTodo] = useState('');
     const [isEditing, setIsEditing] = useState(null);
     const [editToggole, setEditToggole] = useState(false)
-    const [isDisable, setIsDisable] = useState(false)
+    const [isDisable, setIsDisable] = useState(true)
 
     const localdata = () => {
         let list = localStorage.getItem("todos");
@@ -64,7 +64,25 @@ const TodoApp = () => {
     };
 
     const disablehandler = (id) => {
-        setIsDisable(!isDisable)
+        // setTodos(todos.find((todo) => {
+        //     todo.id === id
+        // }))
+        // let isDisableData = todos.find((todo)=>{
+        //     if(todo.id === id){
+        //         return {...todo,['isDisable']:isDisable}
+        //     }
+        // })
+        // setTodos(...todos, isDisableData)
+        // console.log(isDisableData)
+        // console.log(isDisable)
+        // return isDisableData
+        setTodos(todos.map((elem)=>{
+            if(elem.id === id){
+                setIsDisable(!isDisable)
+                return {...elem,['isDisable']: isDisable}
+            }
+            return elem
+        }))
     }
 
     return (
@@ -78,7 +96,7 @@ const TodoApp = () => {
                 removeButtonComponents={removeItem}
                 edithandler={handleEdit}
                 disablehandler={disablehandler}
-                idDisableVar={isDisable}
+                // idDisableVar={isDisable}
             />
         </div>
     );
