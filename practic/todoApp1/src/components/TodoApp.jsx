@@ -64,6 +64,11 @@ const TodoApp = () => {
     };
 
     const disablehandler = (id) => {
+        // if(!isDisable){
+        //     console.log(isDisable,'test 1')
+        // }else {
+        //     console.log(isDisable, 'test 2')
+        // }
         // setTodos(todos.find((todo) => {
         //     todo.id === id
         // }))
@@ -78,6 +83,21 @@ const TodoApp = () => {
         // return isDisableData
         setTodos(todos.map((elem)=>{
             if(elem.id === id){
+                try {
+                    if(!elem.isDisable){
+                        console.log('test try fast if')
+                        setIsDisable(isDisable)
+                        return {...elem,['isDisable']: isDisable}
+                    }else {
+                        setIsDisable(!isDisable)
+                        return {...elem,['isDisable']: isDisable}
+                    }
+                }
+                catch(err){
+                    console.log(err)
+                }
+                // console.log('test',isDisable)
+
                 setIsDisable(!isDisable)
                 return {...elem,['isDisable']: isDisable}
             }
