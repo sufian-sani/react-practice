@@ -84,13 +84,12 @@ const TodoApp = () => {
         setTodos(todos.map((elem)=>{
             if(elem.id === id){
                 try {
-                    if(!elem.isDisable){
-                        console.log('test try fast if')
-                        setIsDisable(isDisable)
-                        return {...elem,['isDisable']: isDisable}
+                    if(elem.isDisable.length === 0 || elem.isDisable === false){
+                        setIsDisable(true)
+                        return {...elem,['isDisable']: true}
                     }else {
-                        setIsDisable(!isDisable)
-                        return {...elem,['isDisable']: isDisable}
+                        setIsDisable(false)
+                        return {...elem,['isDisable']: false}
                     }
                 }
                 catch(err){
@@ -98,8 +97,8 @@ const TodoApp = () => {
                 }
                 // console.log('test',isDisable)
 
-                setIsDisable(!isDisable)
-                return {...elem,['isDisable']: isDisable}
+                setIsDisable(true)
+                return {...elem,['isDisable']: true}
             }
             return elem
         }))
