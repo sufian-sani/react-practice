@@ -4,8 +4,8 @@ import data from "../data.js";
 function According2(props) {
     const [selected, setSelected] = useState(null);
 
-    function handleSingleSelection(id){
-        setSelected()
+    function handleSingleSelection(getId){
+        console.log(getId)
     }
 
     return (
@@ -18,7 +18,10 @@ function According2(props) {
                                 <h3>{dataItem.question}</h3>
                                 <span>+</span>
                             </div>
-                            <div className="content">{dataItem.answer}</div>
+                            {
+                                selected
+                            }
+                            {/*<div className="content">{dataItem.answer}</div>*/}
                         </div>
                     ))
                 ) : (
