@@ -35,9 +35,7 @@ const TodoApp = () => {
         if (newTodo.trim() !== '' && !isEditing) {
             setTodos([...todos,{ id: Date.now(), text: newTodo}]);
             setNewTodo('');
-            // console.log(todos)
         }else if(newTodo && isEditing){
-            // console.log(isEditing, newTodo)
             setTodos(todos.map((elem)=>{
                 if(elem.id === isEditing){
                     return {...elem,text: newTodo}
@@ -64,23 +62,6 @@ const TodoApp = () => {
     };
 
     const disablehandler = (id) => {
-        // if(!isDisable){
-        //     console.log(isDisable,'test 1')
-        // }else {
-        //     console.log(isDisable, 'test 2')
-        // }
-        // setTodos(todos.find((todo) => {
-        //     todo.id === id
-        // }))
-        // let isDisableData = todos.find((todo)=>{
-        //     if(todo.id === id){
-        //         return {...todo,['isDisable']:isDisable}
-        //     }
-        // })
-        // setTodos(...todos, isDisableData)
-        // console.log(isDisableData)
-        // console.log(isDisable)
-        // return isDisableData
         setTodos(todos.map((elem)=>{
             if(elem.id === id){
                 try {
@@ -95,8 +76,6 @@ const TodoApp = () => {
                 catch(err){
                     console.log(err)
                 }
-                // console.log('test',isDisable)
-
                 setIsDisable(true)
                 return {...elem,['isDisable']: true}
             }
@@ -115,7 +94,6 @@ const TodoApp = () => {
                 removeButtonComponents={removeItem}
                 edithandler={handleEdit}
                 disablehandler={disablehandler}
-                // idDisableVar={isDisable}
             />
         </div>
     );

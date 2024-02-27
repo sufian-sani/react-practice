@@ -11,8 +11,8 @@ const TodoListManage = (props) => {
                 <ListElement
                     key={todo.id}
                     text={todo.text}
-                    removeButton={<ButtonElement eventOperation={()=>props.removeButtonComponents(todo.id)} innerHtmlText={'Remove'} />}
-                    edithandler={<ButtonElement eventOperation={()=>props.edithandler(todo.id)} innerHtmlText={'Edit'} />}
+                    removeButton={<ButtonElement eventOperation={()=>props.removeButtonComponents(todo.id)} innerHtmlText={'Remove'} actionStatus={todo.isDisable?true:false} />}
+                    edithandler={<ButtonElement eventOperation={()=>props.edithandler(todo.id)} innerHtmlText={'Edit'} actionStatus={todo.isDisable?true:false} />}
                     enableDisableButton={<EnableDisableManager disablehandler={()=>props.disablehandler(todo.id)} status={todo.isDisable} />}
                     className={`${todo.isDisable?'text-decoration-line-through':''}`}
                 />
