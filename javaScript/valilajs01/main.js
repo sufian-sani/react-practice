@@ -1,8 +1,9 @@
 import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
-import { localStorageData } from '/localstore/localStorage.js'
+import {arrayTest} from "./jsPractics/arrTest.js";
+// import { setupCounter } from './counter.js'
+// import { localStorageData } from '/localstore/localStorage.js'
 
 document.querySelector('#app').innerHTML = `
 <!--
@@ -28,4 +29,5 @@ document.querySelector('#app').innerHTML = `
 `
 
 // setupCounter(document.querySelector('#counter'))
-localStorageData(document.querySelector('#local'))
+// localStorageData(document.querySelector('#local'))
+arrayTest(document.querySelector('#local'))
