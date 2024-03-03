@@ -8,6 +8,7 @@ import RandomColor from "./components/random-color/index.jsx";
 import RandomColor2 from "./components/random-color2/RandomColor2.jsx";
 // import StarRating from "./components/star-rating/index.jsx";
 import StarRating from "./components/star-rating2/StarRating.jsx";
+import Accordian from "./components2/accordian/Accordian.jsx";
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
       {/*  <RandomColor />*/}
       {/*  <RandomColor2 />*/}
       {/*  <StarRating noOfStars={10} />*/}
-        <StarRating noOfStars={10} />
+      {/*  <StarRating noOfStars={10} />*/}
+        <Accordian />
     </div>
   );
 }
