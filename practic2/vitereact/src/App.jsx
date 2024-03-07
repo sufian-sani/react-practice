@@ -11,7 +11,9 @@ import StarRating from "./components/star-rating2/StarRating.jsx";
 import Accordian from "./components2/accordian/Accordian.jsx";
 import ColorGenerate from "./components2/colorgenerator/ColorGenerate.jsx";
 import StarFeed from "./components2/starfeedback/index.jsx";
-import ImageSlider from "./components/image-slider/index.jsx";
+// import ImageSlider from "./components/image-slider/index.jsx";
+// import ImageSlider from "./components/image-slider2/index.jsx";
+import ImageSlider from "./components/image-slider2/indexAi.jsx";
 
 function App() {
 
@@ -26,7 +28,8 @@ function App() {
       {/*  <Accordian />*/}
       {/*  <ColorGenerate />*/}
       {/*  <StarFeed />*/}
-        <ImageSlider url={"https://picsum.photos/v2/list"} page={'1'} limit={"10"} />
+      {/*  <ImageSlider url={"https://picsum.photos/v2/list"} page={'1'} limit={"10"} />*/}
+        <ImageSlider />
     </div>
   );
 }
