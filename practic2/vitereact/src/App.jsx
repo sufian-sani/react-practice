@@ -14,6 +14,7 @@ import StarFeed from "./components2/starfeedback/index.jsx";
 // import ImageSlider from "./components/image-slider/index.jsx";
 // import ImageSlider from "./components/image-slider2/index.jsx";
 import ImageSlider from "./components/image-slider2/indexAi.jsx";
+import LoadMoreData from "./components/load-more-data/LoadMoreData.jsx";
 
 function App() {
 
@@ -29,7 +30,8 @@ function App() {
       {/*  <ColorGenerate />*/}
       {/*  <StarFeed />*/}
       {/*  <ImageSlider url={"https://picsum.photos/v2/list"} page={'1'} limit={"10"} />*/}
-        <ImageSlider />
+      {/*  <ImageSlider />*/}
+        <LoadMoreData />
     </div>
   );
 }

@@ -11,7 +11,7 @@ const ImageSlider = () => {
                     throw new Error('Network response was not ok');
                 }
                 const result = await response.json();
-                setImages(result);
+                setImages(result.map((image) => image.download_url));
             } catch (error) {
                 console.log(error)
             }
@@ -20,7 +20,6 @@ const ImageSlider = () => {
         fetchData();
     }, []);
 
-    console.log(images)
 
     const goToNextSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -33,11 +32,29 @@ const ImageSlider = () => {
     return (
         <div style={{ textAlign: 'center' }}>
             <button onClick={goToPrevSlide}>Prev</button>
-            <img
-                src={images.download_url}
-                alt={`Slide ${currentIndex + 1}`}
-                style={{ maxWidth: '100%', maxHeight: '300px' }}
-            />
+            {/*<img*/}
+            {/*    src={images.download_url}*/}
+            {/*    alt={`Slide ${currentIndex + 1}`}*/}
+            {/*    style={{ maxWidth: '100%', maxHeight: '300px' }}*/}
+            {/*/>*/}
+            {/*{*/}
+            {/*    images && images.length*/}
+            {/*    ? images.map((imagesItem, index)=>(*/}
+            {/*        <img*/}
+            {/*            src={images[currentIndex]}*/}
+            {/*            alt={`Slide ${currentIndex + 1}`}*/}
+            {/*            style={{ maxWidth: '100%', maxHeight: '300px' }}*/}
+            {/*        />*/}
+            {/*        ))*/}
+            {/*        : null*/}
+            {/*}*/}
+            {images.length > 0 && (
+                <img
+                    src={images[currentIndex]}
+                    alt={`Slide ${currentIndex + 1}`}
+                    style={{ maxWidth: '100%', maxHeight: '300px' }}
+                />
+            )}
             <button onClick={goToNextSlide}>Next</button>
         </div>
     );
