@@ -6,6 +6,8 @@ import According from "./components/accordian/index.jsx";
 import According2 from "./components/accordian2/index.jsx";
 import RandomColor from "./components/random-color/index.jsx";
 import RandomColor2 from "./components/random-color2/RandomColor2.jsx";
+import Tabs from "./components/custom-tabs2/tabs.jsx";
+import {ModelTest} from "./components/custom-model/model-test.jsx";
 // import StarRating from "./components/star-rating/index.jsx";
 // import StarRating from "./components/star-rating2/StarRating.jsx";
 // import Accordian from "./components2/accordian/Accordian.jsx";
@@ -18,8 +20,9 @@ import RandomColor2 from "./components/random-color2/RandomColor2.jsx";
 // import menus from "./components/tree-view/data";
 // import TreeView from "./components/tree-view/index.jsx";
 
-import menus from "./components/tree-view2/data.js";
-import TreeView2 from "./components/tree-view2/index.jsx";
+// import menus from "./components/tree-view2/tabs-data.js";
+// import TreeView2 from "./components/tree-view2/index.jsx";
+// import TabTest from "./components/custom-tabs/tab-test.jsx";
 function App() {
 
   return (
@@ -37,7 +40,10 @@ function App() {
       {/*  <ImageSlider />*/}
       {/*  <LoadMoreData />*/}
       {/*  <TreeView  menus={menus} />*/}
-        <TreeView2 menus={menus} />
+      {/*  <TreeView2 menus={menus} />*/}
+      {/*  <TabTest />*/}
+      {/*<Tabs />*/}
+        <ModelTest />
     </div>
   );
 }
