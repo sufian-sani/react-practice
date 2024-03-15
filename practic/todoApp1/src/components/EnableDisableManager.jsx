@@ -6,8 +6,6 @@ const EnableDisableManager = (props) => {
 
     return (
         <>
-            {/*<CheckTypeComponents eventOperation={props.disablehandler} status={props.status} />*/}
-            {/*<CheckTypeComponents eventOperation={props.disablehandler} checked={props.status?'true':'false'} />*/}
             <CheckTypeComponents eventOperation={props.disablehandler} status={props.status} />
             <LabelManager labelText={'Disable'} />
         </>

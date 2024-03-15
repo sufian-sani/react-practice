@@ -1,5 +1,6 @@
 
 export default function Checkbox({checked = false, onClick}) {
+  console.log('test')
   return (
     <div onClick={onClick}>
       {!checked && (
