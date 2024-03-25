@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
-app.use('/posts', postsRouter);
+app.use('/', postsRouter);
 
 // Sync Sequelize models with the database
 sequelize.sync()
