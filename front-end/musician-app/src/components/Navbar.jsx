@@ -21,8 +21,9 @@ function Navbar(props) {
             <span> </span>
             <Link to="/albums">Albums</Link>
             <span> </span>
-
+            <Link to="/signup">Sign up</Link>
             <span> </span>
+            <Link to="/login">Login</Link>
             {/*<Link to="/login">Login</Link>*/}
             {/* Other navbar items */}
             {isLoggedIn ? (
@@ -30,12 +31,9 @@ function Navbar(props) {
                     <LogoutButton onLogout={handleLogout} />
                 </li>
 
-                ) : (
-                    <li>
-                        <Link onClick={handleLogin} to="/login">Login</Link>
-                        <Link to="/signup">Sign up</Link>
-                    </li>
-                )}
+                ) :
+                    null
+                }
         </nav>
     );
 }
