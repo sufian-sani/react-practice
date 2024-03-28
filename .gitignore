@@ -4,6 +4,7 @@
 /node_modules
 node_modules
 node_modules/
+**node_modules
 
 outsideProject/react-todo-app/node_modules/
 /.pnp
