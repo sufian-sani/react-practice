@@ -1,5 +1,6 @@
 // MusicianList.js
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function MusicianList({ onSelect }) {
     const [musicians, setMusicians] = useState([]);
@@ -29,9 +30,11 @@ function MusicianList({ onSelect }) {
             <ol>
                 {musicians.map(musician => (
                     <li key={musician.id}>
-                        <span>Name: {musician.name}, </span>
+                        {/*<span>Name: {musician.name}, </span>*/}
+                        <Link to={`/musiciandetails/${musician.id}`}>{musician.name}</Link>
                         <span>instrument: {musician.instrument}, </span>
                         <span>Area: </span>{musician.musicianArea}
+                        <span>Musician Area: </span>{musician.musicianArea}
                     </li>
                 ))}
             </ol>

@@ -18,22 +18,26 @@ function Navbar(props) {
     return (
         <nav>
             <Link to="/">Musicians</Link>
-            <span> </span>
+            <span> | </span>
             <Link to="/albums">Albums</Link>
-            <span> </span>
+            <span> | </span>
+            <Link to="/addmusician">Add Musician</Link>
+            <span> | </span>
+            <Link to="/addalbum">Add Album</Link>
+            <span> | </span>
             <Link to="/signup">Sign up</Link>
-            <span> </span>
+            <span> | </span>
             <Link to="/login">Login</Link>
             {/*<Link to="/login">Login</Link>*/}
             {/* Other navbar items */}
             {isLoggedIn ? (
-                <li>
-                    <LogoutButton onLogout={handleLogout} />
-                </li>
+                    <li>
+                        <LogoutButton onLogout={handleLogout}/>
+                    </li>
 
                 ) :
-                    null
-                }
+                null
+            }
         </nav>
     );
 }
