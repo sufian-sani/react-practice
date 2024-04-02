@@ -5,7 +5,7 @@ function MusicianForm() {
     const [formData, setFormData] = useState({
         name: '',
         instrument: '',
-        musicianArea: ''
+        musicianarea: ''
     });
     const [error, setError] = useState(null);
 
