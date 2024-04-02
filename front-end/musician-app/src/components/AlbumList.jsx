@@ -1,5 +1,6 @@
 // AlbumList.js
 import React, { useState, useEffect } from 'react';
+import {Link} from "react-router-dom";
 
 function AlbumList({ musician }) {
     const [albums, setAlbums] = useState([]);
@@ -23,17 +24,16 @@ function AlbumList({ musician }) {
         fetchData();
     }, []);
 
-    console.log(albums)
-
     return (
         <div>
             <h2>Album List</h2>
             <ol>
                 {albums.map(album => (
                     <li key={album.id}>
-                        <span>Name: {album.title}, </span>
+                        {/*<span>Name: {album.title}, </span>*/}
+                        <Link to={`/albumdetails/${album.id}`}>{album.title}</Link>
                         <span>Release Year: {album.releaseYear}, </span>
-                        <span>Musician Id: </span>{album.musicianId}
+                        <span>Musician Name: </span>{album.musician.name}
                     </li>
                 ))}
             </ol>

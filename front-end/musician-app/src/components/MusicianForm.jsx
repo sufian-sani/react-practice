@@ -5,7 +5,7 @@ function MusicianForm() {
     const [formData, setFormData] = useState({
         name: '',
         instrument: '',
-        musicianarea: ''
+        musicianArea: ''
     });
     const [error, setError] = useState(null);
 
@@ -57,8 +57,8 @@ function MusicianForm() {
                 />
                 <input
                     type="text"
-                    name="musicianarea"
-                    value={formData.musicianarea}
+                    name="musicianArea"
+                    value={formData.musicianArea}
                     onChange={handleChange}
                     placeholder="Musicianarea"
                 />
