@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-function MusicianList({ onSelect }) {
+function MusicianList() {
     const [musicians, setMusicians] = useState([]);
 
     // Fetch data from the API on component mount
@@ -31,7 +31,7 @@ function MusicianList({ onSelect }) {
                 {musicians.map(musician => (
                     <li key={musician.id}>
                         {/*<span>Name: {musician.name}, </span>*/}
-                        <Link to={`/musiciandetails/${musician.id}`}>{musician.name}</Link>
+                        <Link to={`/musiciandetails/${musician.id}`} >{musician.name}</Link>
                         <span>instrument: {musician.instrument}, </span>
                         <span>Area: </span>{musician.musicianArea}
                         <span>Musician Area: </span>{musician.musicianArea}

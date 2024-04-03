@@ -49,7 +49,7 @@ function MusicianDetails() {
             // Handle error (e.g., display error message)
         }
     };
-
+    // const encodedMData = encodeURIComponent(JSON.stringify(musician));
     return (
         <div>
             <h2>Musician Details</h2>
@@ -59,7 +59,7 @@ function MusicianDetails() {
             {/* Display other musician details as needed */}
             <br />
             {/*<MusicianUpdateForm musician={musician} />*/}
-            <Link to={`/musician/${musicianId}/update`}>Update Musician</Link>
+            <Link to={`/musician/${musicianId}/update`}><button>Update Musician</button></Link>
             <button onClick={handleDelete}>Delete Musician</button>
             {/*<MusicianUpdateForm musician={musician} />*/}
         </div>
