@@ -1,6 +1,6 @@
 // AlbumDetails.js
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
 function AlbumDetails() {
     const { albumId } = useParams(); // Get albumId from URL params
@@ -78,6 +78,7 @@ function AlbumDetails() {
             {/*<p>Musician instrument: {musicianDetails.instrument}</p>*/}
             {/*<p>Musician Area: {musicianDetails.musicianArea}</p>*/}
             <br/>
+            <Link to={`/album/${albumId}/update`}><button>Update Album</button></Link>
             <button onClick={handleDelete}>Delete Album</button>
         </div>
     );

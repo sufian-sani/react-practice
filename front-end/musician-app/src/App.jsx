@@ -14,6 +14,7 @@ import AlbumForm from "./components/AlbumForm.jsx";
 import MusicianDetails from "./components/MusicianDetails.jsx";
 import AlbumDetails from "./components/AlbumDetails.jsx";
 import MusicianUpdateForm from "./components/MusicianUpdateForm.jsx";
+import AlbumUpdateForm from "./components/AlbumUpdateForm.jsx";
 function App() {
 
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path="/musiciandetails/:musicianId" element={<MusicianDetails />} />
               <Route path="/musician/:musicianId/update" element={<MusicianUpdateForm />} />
               <Route path="/albumdetails/:albumId" element={<AlbumDetails />} />
+              <Route path="/album/:albumId/update" element={<AlbumUpdateForm />} />
               <Route path="/signup" element={<SignupForm />} />  {/* Route for AlbumList at /signup */}
               <Route path="/login" element={<LoginForm />} />  {/* Route for AlbumList at /login */}
           </Routes>
