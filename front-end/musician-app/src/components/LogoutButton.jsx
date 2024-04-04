@@ -1,9 +1,19 @@
 // LogoutButton.js
-import React from 'react';
+import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function LogoutButton() {
+function LogoutButton({ logoutStatus }) {
     const navigate = useNavigate();
+
+    // const [logoutStatus, setLogoutStatus] = useState(false)
+
+    const sendDataToHandle = () => {
+        // Call the callback function with the data
+        // console.log('fast')
+        // setIsLoggedIn(true);
+        logoutStatus(true)
+        // console.log(isLoggedIn)
+    };
 
     const handleLogout = async () => {
         try {
@@ -21,7 +31,7 @@ function LogoutButton() {
             if (!response.ok) {
                 throw new Error('Logout failed');
             }
-
+            sendDataToHandle()
             // Redirect the user to the login page (or any other appropriate page)
             navigate('/');
         } catch (error) {

@@ -16,10 +16,27 @@ import AlbumDetails from "./components/AlbumDetails.jsx";
 import MusicianUpdateForm from "./components/MusicianUpdateForm.jsx";
 import AlbumUpdateForm from "./components/AlbumUpdateForm.jsx";
 function App() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    // const handleLogout = () => {
+    //     // Perform logout logic
+    //     setIsLoggedIn(false);
+    // };
+    // let isLoggedIn = '';
+
+    const handleLogin = (data) => {
+        if(data){
+            setIsLoggedIn(true);
+            // onFormSubmit(true);
+        }
+        // console.log('data',data)
+        // console.log('isLoggedIn',isLoggedIn)
+    };
+    console.log()
 
   return (
       <Router>
-          <Navbar />
+          <Navbar loginStatus={isLoggedIn} />
           <Routes>
               <Route path="/" element={<MusicianList />} />  {/* Route for MusicianList at root */}
               <Route path="/albums" element={<AlbumList />} />  {/* Route for AlbumList at /albums */}
@@ -30,7 +47,7 @@ function App() {
               <Route path="/albumdetails/:albumId" element={<AlbumDetails />} />
               <Route path="/album/:albumId/update" element={<AlbumUpdateForm />} />
               <Route path="/signup" element={<SignupForm />} />  {/* Route for AlbumList at /signup */}
-              <Route path="/login" element={<LoginForm />} />  {/* Route for AlbumList at /login */}
+              <Route path="/login" element={<LoginForm onFormSubmit={handleLogin} />} />  {/* Route for AlbumList at /login */}
           </Routes>
       </Router>
   )

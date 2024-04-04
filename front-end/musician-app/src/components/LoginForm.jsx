@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function LoginForm() {
+function LoginForm({ onFormSubmit }) {
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+
     const [formData, setFormData] = useState({
         username: '',
         password: ''
@@ -15,6 +17,14 @@ function LoginForm() {
             ...prevState,
             [name]: value
         }));
+    };
+
+    const sendDataToHandle = () => {
+        // Call the callback function with the data
+        // console.log('fast')
+        // setIsLoggedIn(true);
+        onFormSubmit(true)
+        // console.log(isLoggedIn)
     };
 
     const handleSubmit = async (e) => {
@@ -31,6 +41,8 @@ function LoginForm() {
                 throw new Error('Login failed');
             }
             // Login successful, handle success (e.g., redirect user)
+            sendDataToHandle()
+            // console.log('second')
             navigate('/');
         } catch (error) {
             console.error('Login error:', error);
