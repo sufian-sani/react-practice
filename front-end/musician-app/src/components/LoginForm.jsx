@@ -1,8 +1,9 @@
 // LoginForm.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {login} from "./AuthService.jsx";
 
-function LoginForm({ onFormSubmit }) {
+function LoginForm({ onLogin }) {
     // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const [formData, setFormData] = useState({
@@ -19,13 +20,13 @@ function LoginForm({ onFormSubmit }) {
         }));
     };
 
-    const sendDataToHandle = () => {
-        // Call the callback function with the data
-        // console.log('fast')
-        // setIsLoggedIn(true);
-        onFormSubmit(true)
-        // console.log(isLoggedIn)
-    };
+    // const sendDataToHandle = () => {
+    //     // Call the callback function with the data
+    //     // console.log('fast')
+    //     // setIsLoggedIn(true);
+    //     onFormSubmit(true)
+    //     // console.log(isLoggedIn)
+    // };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -41,7 +42,9 @@ function LoginForm({ onFormSubmit }) {
                 throw new Error('Login failed');
             }
             // Login successful, handle success (e.g., redirect user)
-            sendDataToHandle()
+            // sendDataToHandle()
+            login(formData)
+            onLogin();
             // console.log('second')
             navigate('/');
         } catch (error) {

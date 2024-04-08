@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import MusicianUpdateForm from "./MusicianUpdateForm.jsx";
 
-function MusicianDetails() {
+function MusicianDetails({ loginStatus }) {
     const { musicianId } = useParams(); // Get musicianId from URL params
     const [musician, setMusician] = useState(null);
     const [error, setError] = useState(null);
@@ -35,6 +35,8 @@ function MusicianDetails() {
         return <div>Loading...</div>;
     }
 
+    console.log('loginStatus',loginStatus)
+
     const handleDelete = async () => {
         try {
             const response = await fetch(`http://localhost:3000/api/musicians/${musicianId}`, {
@@ -59,9 +61,16 @@ function MusicianDetails() {
             {/* Display other musician details as needed */}
             <br />
             {/*<MusicianUpdateForm musician={musician} />*/}
-            <Link to={`/musician/${musicianId}/update`}><button>Update Musician</button></Link>
-            <button onClick={handleDelete}>Delete Musician</button>
-            {/*<MusicianUpdateForm musician={musician} />*/}
+            {
+                loginStatus?
+                    <div>
+                        <Link to={`/musician/${musicianId}/update`}><button>Update Musician</button></Link>
+                        <button onClick={handleDelete}>Delete Musician</button>
+                        {/*<MusicianUpdateForm musician={musician} />*/}
+                    </div>
+                :null
+            }
+
         </div>
     );
 }

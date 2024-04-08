@@ -5,14 +5,19 @@ import { useNavigate } from 'react-router-dom';
 function LogoutButton({ logoutStatus }) {
     const navigate = useNavigate();
 
-    // const [logoutStatus, setLogoutStatus] = useState(false)
+    // const [logoutStatusEle, setLogoutStatusEle] = useState(false)
 
     const sendDataToHandle = () => {
         // Call the callback function with the data
         // console.log('fast')
         // setIsLoggedIn(true);
-        logoutStatus(true)
+        // logoutStatus(true)
         // console.log(isLoggedIn)
+        // setLogoutStatusEle(true)
+        // logoutStatus = logoutStatusEle
+        // console.log(logoutStatus)
+        // setLogoutStatusEle(true)
+        logoutStatus()
     };
 
     const handleLogout = async () => {
