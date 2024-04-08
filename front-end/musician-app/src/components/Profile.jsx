@@ -10,7 +10,7 @@ function Profile() {
     return (
         <div>
             <h2>User Profile</h2>
-            <p>Username: {userData.username}</p>
+            {/*<p>Username: {userData.username}</p>*/}
             {/* Display other user data */}
         </div>
     );

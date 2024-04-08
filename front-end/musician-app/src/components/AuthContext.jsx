@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = (sessionId) => {
         setSessionId(sessionId);
+        console.log(sessionId)
         localStorage.setItem('sessionId', sessionId);
     };
 

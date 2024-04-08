@@ -50,6 +50,7 @@ function LoginForm({ onLogin }) {
             // onLogin();
             // console.log('second')
             const { sessionId } = await response.json();
+            console.log(sessionId)
             login(sessionId);
             navigate('/');
         } catch (error) {
