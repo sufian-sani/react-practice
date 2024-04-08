@@ -1,7 +1,9 @@
 // LoginForm.jsx
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {login} from "./AuthService.jsx";
+// import { AuthProvider } from "./AuthProvider.jsx";
+import { useAuth } from './AuthContext';
 
 function LoginForm({ onLogin }) {
     // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -10,6 +12,7 @@ function LoginForm({ onLogin }) {
         username: '',
         password: ''
     });
+    const { login } = useAuth();
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -43,9 +46,11 @@ function LoginForm({ onLogin }) {
             }
             // Login successful, handle success (e.g., redirect user)
             // sendDataToHandle()
-            login(formData)
-            onLogin();
+            // login(formData)
+            // onLogin();
             // console.log('second')
+            const { sessionId } = await response.json();
+            login(sessionId);
             navigate('/');
         } catch (error) {
             console.error('Login error:', error);

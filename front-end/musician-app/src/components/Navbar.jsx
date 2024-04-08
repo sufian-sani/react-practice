@@ -2,6 +2,7 @@ import {useState} from 'react';
 import { Link } from 'react-router-dom';
 import LogoutButton from './LogoutButton';
 import Profile from './Profile';
+import { useAuth } from './AuthContext';
 
 function Navbar(props) {
     // const [isLoggedIn, setIsLoggedIn] = useState(false); // Initialize as false if user is not logged in
@@ -17,12 +18,14 @@ function Navbar(props) {
     //     setIsLoggedIn(true);
     // };
     const { loginStatus, logoutStatus } = props;
+    const { sessionId } = useAuth();
+    console.log(sessionId)
 
 
     return (
         <nav>
             User Data:{
-                loginStatus?
+                sessionId?
                     <Profile />
                 : null
             }
@@ -39,7 +42,7 @@ function Navbar(props) {
             {/*<Link to="/login">Login</Link>*/}
             {/*<Link to="/login">Login</Link>*/}
             {/* Other navbar items */}
-            {loginStatus ? (
+            {sessionId ? (
                     <li>
                         <LogoutButton logoutStatus={logoutStatus} />
                     </li>

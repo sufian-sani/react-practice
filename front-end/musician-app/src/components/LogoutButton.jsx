@@ -1,11 +1,13 @@
 // LogoutButton.js
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
 
 function LogoutButton({ logoutStatus }) {
     const navigate = useNavigate();
 
     // const [logoutStatusEle, setLogoutStatusEle] = useState(false)
+    const { logout } = useAuth();
 
     const sendDataToHandle = () => {
         // Call the callback function with the data
@@ -17,7 +19,7 @@ function LogoutButton({ logoutStatus }) {
         // logoutStatus = logoutStatusEle
         // console.log(logoutStatus)
         // setLogoutStatusEle(true)
-        logoutStatus()
+        logout()
     };
 
     const handleLogout = async () => {
