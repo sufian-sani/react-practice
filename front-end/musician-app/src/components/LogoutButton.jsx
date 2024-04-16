@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 
-function LogoutButton({ logoutStatus }) {
+function LogoutButton({ onLogout }) {
     const navigate = useNavigate();
 
     // const [logoutStatusEle, setLogoutStatusEle] = useState(false)
