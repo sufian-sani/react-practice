@@ -1,4 +1,4 @@
-// // api.jsx
+// // api.js
 // const BASE_URL = 'http://localhost:3000/';
 //
 // export const login = async (username, password) => {
@@ -30,9 +30,8 @@ export const login = async (username, password) => {
         if (!response.ok) {
             throw new Error('Login failed');
         }
-
         const data = await response.json();
-        return data.user;
+        return data;
     } catch (error) {
         throw new Error('Login failed');
     }

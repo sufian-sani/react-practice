@@ -1,7 +1,7 @@
 // Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from './api';
+import { login } from './api.js';
 
 const Login = ({ setLoggedIn }) => {
     const [credentials, setCredentials] = useState({ username: '', password: '' });
@@ -18,6 +18,7 @@ const Login = ({ setLoggedIn }) => {
             if (user) {
                 setLoggedIn(true);
                 navigate('/dashboard');
+                console.log(user)
             } else {
                 alert('Invalid credentials');
             }
