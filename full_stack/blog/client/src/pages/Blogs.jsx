@@ -1,9 +1,32 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from "axios";
+import BlogCards from "../components/BlogCards.jsx";
 
 const Blogs = () => {
+    const [blogs, setblogs] = useState([])
+    const getAllBlogs = async () => {
+        try {
+            const { data } = await axios.get('http://localhost:8080/api/v1/blog/all-blog')
+            if(data.success){
+                setblogs(data.blogs)
+            }
+        }catch(error) {
+            console.log(error)
+        }
+    }
+    useEffect(() => {
+        getAllBlogs()
+    }, []);
     return (
         <div>
-            <h1>Blog</h1>
+            {
+                blogs && blogs.map((blog) => <BlogCards
+                    title={blog.title}
+                    description={blog.description}
+                    image={blog.image}
+                    username={blog.user.username}
+                />)
+            }
         </div>
     );
 };
