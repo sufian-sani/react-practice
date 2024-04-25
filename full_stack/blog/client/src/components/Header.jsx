@@ -5,7 +5,8 @@ import {authActions} from "../redux/store.js";
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-    const isLogin = useSelector(state => state.isLogin)
+    let isLogin = useSelector(state => state.isLogin);
+    isLogin = isLogin || localStorage.getItem("userId");
     const dispatch = useDispatch()
     const navigate = useNavigate();
 
@@ -27,6 +28,7 @@ const Header = () => {
                 <>
                     <Link to="/blogs">Home</Link>
                     <Link to="/my-blog">My Blogs</Link>
+                    <Link to="/create-blog">Create Blogs</Link>
                 </>
             )}
 
