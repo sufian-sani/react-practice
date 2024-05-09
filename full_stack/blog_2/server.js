@@ -10,7 +10,8 @@ const connectDB = require("./config/db");
 dotenv.config();
 
 //route import
-const userRouters = require('./routes/userRoutes')
+const userRouters = require("./routes/userRoutes")
+const blogRouters = require("./routes/blogRoutes")
 
 //mongodb connection
 connectDB();
@@ -25,6 +26,7 @@ app.use(morgan('dev'));
 
 //route
 app.use('/api/v1/user', userRouters)
+app.use('/api/v1/blog', blogRouters)
 
 //Port
 const PORT = process.env.PORT || 8080;
