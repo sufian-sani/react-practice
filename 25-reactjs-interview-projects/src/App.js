@@ -62,7 +62,7 @@ function App() {
       {/* <ModalTest/> */}
 
       {/* Github profile finder */}
-      {/* <GithubProfileFinder/> */}
+      {/* <GithubProfileFinder/>*/}
 
       {/* Search Autocomplete */}
       {/* <SearchAutocomplete/> */}
@@ -88,7 +88,7 @@ function App() {
       {/* <ScrollToTopAndBottom/> */}
 
       {/* Scroll to a Particular Section */}
-      <ScrollToSection/>
+      {/*<ScrollToSection/>*/}
     </div>
   );
 }
